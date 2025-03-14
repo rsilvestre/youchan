@@ -15,14 +15,13 @@ config :youchan,
   # Configure which backend to use for cache
   cache_backends: %{
     # Channel details cache (using memory backend)
-    channel_details: %{
-      backend: Youchan.Cache.MemoryBackend,
+    channel_details: [
+      backend: YouCache.Backend.Memory,
       backend_options: [
-        table_name: :channel_details_cache,
         # Max entries in memory
         max_size: 1000
       ]
-    }
+    ]
   }
 
 # For development, you can configure your API key here for convenience

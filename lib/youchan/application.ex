@@ -11,7 +11,8 @@ defmodule Youchan.Application do
     cache_config = Application.get_env(:youchan, :cache, [])
 
     children = [
-      {Youchan.Cache, cache_config}
+      # Pass the app_name to allow YouCache to read configuration from :youchan app
+      {Youchan.Cache, [app_name: :youchan] ++ cache_config}
     ]
 
     opts = [strategy: :one_for_one, name: Youchan.Supervisor]
