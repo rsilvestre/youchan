@@ -13,8 +13,8 @@ defmodule YouchanTest do
       custom_url: "@TestChannel",
       published_at: "2023-01-01T12:00:00Z",
       country: "US",
-      view_count: 10000000,
-      subscriber_count: 100000,
+      view_count: 10_000_000,
+      subscriber_count: 100_000,
       video_count: 500,
       thumbnail_url: "https://example.com/thumb.jpg",
       topic_categories: ["https://en.wikipedia.org/wiki/Programming"],
@@ -28,8 +28,8 @@ defmodule YouchanTest do
     assert channel_details.description == "This is a test description"
     assert channel_details.custom_url == "@TestChannel"
     assert channel_details.country == "US"
-    assert channel_details.view_count == 10000000
-    assert channel_details.subscriber_count == 100000
+    assert channel_details.view_count == 10_000_000
+    assert channel_details.subscriber_count == 100_000
     assert channel_details.video_count == 500
     assert channel_details.thumbnail_url == "https://example.com/thumb.jpg"
     assert channel_details.topic_categories == ["https://en.wikipedia.org/wiki/Programming"]
@@ -56,8 +56,8 @@ defmodule YouchanTest do
         }
       },
       "statistics" => %{
-        "viewCount" => "10000000",
-        "subscriberCount" => "100000",
+        "viewCount" => "10_000_000",
+        "subscriberCount" => "100_000",
         "videoCount" => "500"
       },
       "topicDetails" => %{
@@ -84,8 +84,8 @@ defmodule YouchanTest do
     assert channel_details.custom_url == "@TestChannel"
     assert channel_details.published_at == "2023-01-01T12:00:00Z"
     assert channel_details.country == "US"
-    assert channel_details.view_count == 10000000
-    assert channel_details.subscriber_count == 100000
+    assert channel_details.view_count == 10_000_000
+    assert channel_details.subscriber_count == 100_000
     assert channel_details.video_count == 500
     assert channel_details.thumbnail_url == "https://example.com/thumb.jpg"
     assert channel_details.topic_categories == ["https://en.wikipedia.org/wiki/Programming"]
@@ -111,7 +111,7 @@ defmodule YouchanTest do
     assert ChannelDetails.format_subscriber_count(channel_details) == "500"
 
     # Test with thousands
-    channel_details = %{base | subscriber_count: 5500}
+    channel_details = %{base | subscriber_count: 5_500}
     assert ChannelDetails.format_subscriber_count(channel_details) == "5.5K"
 
     # Test with millions
@@ -139,7 +139,7 @@ defmodule YouchanTest do
     assert ChannelDetails.format_view_count(channel_details) == "500"
 
     # Test with thousands
-    channel_details = %{base | view_count: 5500}
+    channel_details = %{base | view_count: 5_500}
     assert ChannelDetails.format_view_count(channel_details) == "5.5K"
 
     # Test with millions
