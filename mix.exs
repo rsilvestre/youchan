@@ -79,7 +79,7 @@ defmodule Youchan.MixProject do
     [
       files: ~w(lib .formatter.exs mix.exs README*),
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/yourusername/youchan"}
+      links: %{"GitHub" => "https://github.com/rsilvestre/youchan"}
     ]
   end
 end
